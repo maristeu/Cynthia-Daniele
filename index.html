@@ -16,22 +16,22 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Montserrat', sans-serif;
-            -webkit-tap-highlight-color: transparent; /* Remove o flash azul ao tocar */
+            -webkit-tap-highlight-color: transparent; 
         }
 
         :root {
-            --cor-texto-escuro: #4A443F; /* Taupe escuro */
+            --cor-texto-escuro: #4A443F; 
             --cor-texto-medio: #6B635C;
             --cor-texto-claro: #FFFFFF;
-            --cor-destaque: #A3968A; /* Greige da marca */
+            --cor-destaque: #A3968A; 
             --cor-destaque-hover: #8C7F73;
-            --cor-fundo-card: rgba(255, 255, 255, 0.8); /* Fundo translúcido (Glassmorphism) */
+            --cor-fundo-card: rgba(255, 255, 255, 0.8); 
             --sombra-card: 0 8px 32px rgba(74, 68, 63, 0.1);
         }
 
         body {
             background-color: #EAE6E1;
-            background-image: url('bg-textura.webp'); /* Anexo 2 */
+            background-image: url('bg-textura.webp'); 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -40,6 +40,7 @@
             display: flex;
             justify-content: center;
             line-height: 1.6;
+            padding-bottom: 80px; /* Espaço para não cobrir o footer com o botão flutuante */
         }
 
         .container {
@@ -54,14 +55,13 @@
         /* HEADER E ANIMAÇÃO DA LOGO "INSTA-STYLE" */
         .profile-header {
             text-align: center;
-            margin-bottom: 32px;
+            margin-bottom: 24px;
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
 
-        /* O wrapper que contém a logo e o anel animado */
         .logo-wrapper {
             position: relative;
             width: 130px;
@@ -72,23 +72,20 @@
             align-items: center;
         }
 
-        /* O Anel Giratório Multicolorido (Pseudo-elemento) */
         .logo-wrapper::before {
             content: '';
             position: absolute;
-            top: -5px; /* Espaço entre o anel e a logo */
+            top: -5px; 
             left: -5px;
             right: -5px;
             bottom: -5px;
             border-radius: 50%;
-            /* UI/UX: Gradiente multicolorido e contínuo para efeito premium */
             background: conic-gradient(#A3968A, #FFFFFF, #E0DEDC, #A3968A);
-            animation: spinRing 12s linear infinite; /* Rotação lenta e elegante */
-            mask-image: radial-gradient(circle, transparent 67%, #000 68%); /* Poka o centro */
+            animation: spinRing 12s linear infinite; 
+            mask-image: radial-gradient(circle, transparent 67%, #000 68%); 
             -webkit-mask-image: radial-gradient(circle, transparent 67%, #000 68%);
         }
 
-        /* Definição da animação da rotação */
         @keyframes spinRing {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
@@ -103,7 +100,7 @@
             position: relative;
             z-index: 2;
             box-shadow: var(--sombra-card);
-            background-color: #FFF; /* Garante fundo branco se a logo tiver transparência */
+            background-color: #FFF; 
         }
 
         .bio-title {
@@ -132,6 +129,67 @@
             border-radius: 20px;
         }
 
+        /* SEÇÃO: BOTÕES DE CONTATO (PÍLULA) */
+        .contact-section {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .contact-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--cor-texto-escuro);
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .pill-btn {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 50px;
+            padding: 6px 16px 6px 6px;
+            text-decoration: none;
+            color: var(--cor-texto-escuro);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(8px);
+        }
+
+        .pill-btn:hover, .pill-btn:active {
+            background-color: rgba(255, 255, 255, 0.7);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(74, 68, 63, 0.08);
+        }
+
+        .pill-icon-wrapper {
+            width: 44px;
+            height: 44px;
+            background-color: #FFFFFF;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            flex-shrink: 0;
+        }
+
+        .pill-icon-wrapper img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+        }
+
+        .pill-text {
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
         /* CARDS DE PROCEDIMENTO (UI/UX VERTICAL) */
         .services-list {
             width: 100%;
@@ -143,7 +201,7 @@
 
         .service-card {
             background: var(--cor-fundo-card);
-            backdrop-filter: blur(12px); /* Efeito Vidro Fosco */
+            backdrop-filter: blur(12px); 
             border: 1px solid rgba(255, 255, 255, 0.5);
             border-radius: 16px;
             padding: 24px;
@@ -151,13 +209,11 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* Feedback visual ao toque */
         .service-card:hover, .service-card:active {
             transform: translateY(-2px);
             box-shadow: 0 12px 32px rgba(74, 68, 63, 0.12);
         }
 
-        /* Destaque Exobrows */
         .card-destaque {
             border: 1px solid var(--cor-destaque);
             background: rgba(255, 255, 255, 0.95);
@@ -194,7 +250,7 @@
             align-items: center;
             justify-content: center;
             width: 100%;
-            height: 48px; /* Touch target ideal (mínimo 44px) */
+            height: 48px; 
             background-color: transparent;
             color: var(--cor-destaque);
             text-decoration: none;
@@ -220,6 +276,53 @@
             border-color: var(--cor-destaque-hover);
         }
 
+        /* ====== NOVO: BOTÃO FLUTUANTE WHATSAPP ====== */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--cor-fundo-card); /* Mantendo a estética glass */
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 16px rgba(74, 68, 63, 0.15);
+            z-index: 1000; /* Garante que fica por cima de tudo */
+            transition: all 0.3s ease;
+            
+            /* Animação sutil de pulso para UI/UX */
+            animation: pulseFAB 2s infinite;
+        }
+
+        .whatsapp-float:hover, .whatsapp-float:active {
+            transform: scale(1.1) translateY(-5px);
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .whatsapp-float img {
+            width: 35px; /* Tamanho do ícone dentro do círculo */
+            height: 35px;
+            object-fit: contain;
+        }
+
+        /* Definição da animação de pulso */
+        @keyframes pulseFAB {
+            0% {
+                box-shadow: 0 4px 16px rgba(74, 68, 63, 0.15);
+            }
+            50% {
+                box-shadow: 0 4px 25px rgba(163, 150, 138, 0.3); /* Pulsa na cor de destaque */
+            }
+            100% {
+                box-shadow: 0 4px 16px rgba(74, 68, 63, 0.15);
+            }
+        }
+        /* ============================================ */
+
         footer {
             font-size: 0.75rem;
             color: var(--cor-texto-medio);
@@ -241,6 +344,24 @@
             <p class="bio-description">Alta performance em estética facial. Realçamos sua beleza natural com sofisticação e técnicas exclusivas.</p>
             <div class="bio-location">São Bernardo do Campo</div>
         </header>
+
+        <section class="contact-section">
+            <h2 class="contact-title">Agende seu Horário</h2>
+            
+            <a href="https://wa.me/5511939460340" class="pill-btn" target="_blank" rel="noopener noreferrer">
+                <div class="pill-icon-wrapper">
+                    <img src="icon-whatsapp.png" alt="WhatsApp">
+                </div>
+                <span class="pill-text">WhatsApp</span>
+            </a>
+
+            <a href="https://instagram.com/browlab.clinic" class="pill-btn" target="_blank" rel="noopener noreferrer">
+                <div class="pill-icon-wrapper">
+                    <img src="icon-instagram.png" alt="Instagram">
+                </div>
+                <span class="pill-text">@browlab.clinic</span>
+            </a>
+        </section>
 
         <main class="services-list">
             
@@ -373,5 +494,8 @@
 
     </div>
 
-</body>
+    <a href="https://wa.me/5511939460340" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <img src="whatsapp-icone2.png" alt="Agendar no WhatsApp">
+    </a>
+    </body>
 </html>
