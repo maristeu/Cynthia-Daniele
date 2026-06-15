@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-width=1.0">
+    <title>browLab Clinic | Links</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* RESET BÁSICO */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* VARIÁVEIS DE CORES - Paleta Sofisticada */
+        :root {
+            --cor-texto-escuro: #5C544D; /* Um taupe bem escuro para legibilidade */
+            --cor-texto-claro: #FFFFFF;
+            --cor-destaque: #A3968A; /* Bege acinzentado do logo */
+            --cor-fundo-cartao: rgba(255, 255, 255, 0.75); /* Branco translúcido */
+            --cor-fundo-cartao-hover: rgba(255, 255, 255, 0.95);
+        }
+
+        /* FUNDO E CONTAINER MOBILE-FIRST */
+        body {
+            /* Fundo principal com a imagem enviada (Anexo 2) */
+            background-color: #EAE6E1; /* Cor de fallback */
+            background-image: url('bg-textura.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--cor-texto-escuro);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px; /* Mantém proporção de celular mesmo no PC */
+            padding: 40px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* CABEÇALHO E LOGO */
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .logo-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #FFFFFF;
+            box-shadow: 0 8px 24px rgba(92, 84, 77, 0.15);
+            margin-bottom: 16px;
+        }
+
+        .bio-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--cor-texto-escuro);
+            margin-bottom: 6px;
+            letter-spacing: 1px;
+        }
+
+        .bio-description {
+            font-size: 0.9rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: var(--cor-texto-escuro);
+            margin-bottom: 8px;
+        }
+
+        .bio-location {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--cor-destaque);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        /* BOTÕES PRINCIPAIS */
+        .links-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 16px 20px;
+            background-color: var(--cor-fundo-cartao);
+            color: var(--cor-texto-escuro);
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px); /* Efeito vidro sofisticado */
+            position: relative;
+        }
+
+        .btn:hover {
+            background-color: var(--cor-fundo-cartao-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(92, 84, 77, 0.1);
+        }
+
+        .btn-icon {
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            left: 20px;
+        }
+
+        /* BOTÃO DESTAQUE EXOBROWS */
+        .btn-destaque {
+            background-color: var(--cor-destaque);
+            color: var(--cor-texto-claro);
+            font-weight: 600;
+            border: none;
+        }
+        
+        .btn-destaque:hover {
+            background-color: #8A7D71; /* Taupe mais escuro */
+            color: var(--cor-texto-claro);
+        }
+
+        /* SEÇÃO DE PROCEDIMENTOS (GRID DE ÍCONES) */
+        .services-section {
+            width: 100%;
+            text-align: center;
+        }
+
+        .services-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 24px;
+            color: var(--cor-texto-escuro);
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Linha decorativa embaixo do título */
+        .services-title::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background-color: var(--cor-destaque);
+            margin: 8px auto 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 colunas no celular */
+            gap: 16px;
+        }
+
+        .service-card {
+            background-color: var(--cor-fundo-cartao);
+            padding: 20px 12px;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .service-icon {
+            width: 36px;
+            height: 36px;
+            margin-bottom: 12px;
+            opacity: 0.8; /* Deixa o ícone um pouco mais suave */
+        }
+
+        .service-name {
+            font-size: 0.85rem;
+            font-weight: 500;
+            line-height: 1.3;
+        }
+
+        /* RODAPÉ */
+        footer {
+            margin-top: 40px;
+            font-size: 0.75rem;
+            color: var(--cor-texto-escuro);
+            opacity: 0.7;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header class="profile-container">
+            <img src="logo-browlab.webp" alt="browLab Clinic" class="logo-img">
+            <h1 class="bio-title">browLab Clinic</h1>
+            <p class="bio-description">Especialistas em realçar sua beleza natural com exclusividade e design refinado.</p>
+            <span class="bio-location">📍 São Bernardo do Campo, SP</span>
+        </header>
+
+        <nav class="links-container">
+            <a href="URL_DO_WHATSAPP_EXOBROWS" class="btn btn-destaque">
+                <img src="icone-exobrows.png" alt="Exobrows" class="btn-icon">
+                Conheça o Exobrows ✨
+            </a>
+            
+            <a href="URL_DO_WHATSAPP" class="btn">
+                <img src="icone-whatsapp.png" alt="WhatsApp" class="btn-icon">
+                Agendar Consulta
+            </a>
+            
+            <a href="URL_DO_INSTAGRAM" class="btn">
+                <img src="icone-instagram.png" alt="Instagram" class="btn-icon">
+                Nosso Instagram
+            </a>
+        </nav>
+
+        <section class="services-section">
+            <h2 class="services-title">Nossos Procedimentos</h2>
+            
+            <div class="services-grid">
+                
+                <div class="service-card">
+                    <img src="icone-design.png" alt="Design Personalizado" class="service-icon">
+                    <span class="service-name">Design Personalizado</span>
+                </div>
+                
+                <div class="service-card">
+                    <img src="icone-tintura.png" alt="Tintura" class="service-icon">
+                    <span class="service-name">Tintura</span>
+                </div>
+                
+                <div class="service-card">
+                    <img src="icone-epilacao.png" alt="Epilação Egípcia" class="service-icon">
+                    <span class="service-name">Epilação Egípcia</span>
+                </div>
+                
+                <div class="service-card">
+                    <img src="icone-lamination.png" alt="Brow Lamination" class="service-icon">
+                    <span class="service-name">Brow Lamination</span>
+                </div>
+                
+                <div class="service-card">
+                    <img src="icone-nanofios.png" alt="Nanofios" class="service-icon">
+                    <span class="service-name">Nanofios</span>
+                </div>
+                
+                <div class="service-card">
+                    <img src="icone-remocao.png" alt="Remoção a Laser" class="service-icon">
+                    <span class="service-name">Remoção de Micropigmentação</span>
+                </div>
+                
+                <div class="service-card">
+                    <img src="icone-nanolips.png" alt="Nanolips" class="service-icon">
+                    <span class="service-name">Nanolips</span>
+                </div>
+                
+                <div class="service-card">
+                    <img src="icone-hidragloss.png" alt="Hidragloss" class="service-icon">
+                    <span class="service-name">Hidragloss</span>
+                </div>
+
+                <div class="service-card">
+                    <img src="icone-lash.png" alt="Lash Lifting" class="service-icon">
+                    <span class="service-name">Lash Lifting</span>
+                </div>
+
+                <div class="service-card" style="grid-column: span 2;"> <img src="icone-transplante.png" alt="Transplante" class="service-icon">
+                    <span class="service-name">Desenho Cirúrgico (Transplante de Sobrancelhas)</span>
+                </div>
+
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 browLab Clinic. Todos os direitos reservados.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
