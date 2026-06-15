@@ -3,35 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bio Site | Exclusividade em Cada Detalhe</title>
+    <title>browLab Clinic | Exclusividade e Perfeição</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
-        /* RESET BÁSICO E Acessibilidade */
+        /* RESET BÁSICO E ACESSIBILIDADE */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Montserrat', sans-serif;
-            -webkit-tap-highlight-color: transparent;
+            -webkit-tap-highlight-color: transparent; /* Remove o flash azul ao tocar */
         }
 
         :root {
-            --cor-texto-escuro: #4A443F; 
+            --cor-texto-escuro: #4A443F; /* Taupe escuro */
             --cor-texto-medio: #6B635C;
             --cor-texto-claro: #FFFFFF;
-            --cor-destaque: #A3968A; 
+            --cor-destaque: #A3968A; /* Greige da marca */
             --cor-destaque-hover: #8C7F73;
-            --cor-fundo-card: rgba(255, 255, 255, 0.85); 
-            --sombra-card: 0 8px 24px rgba(74, 68, 63, 0.08);
+            --cor-fundo-card: rgba(255, 255, 255, 0.8); /* Fundo translúcido (Glassmorphism) */
+            --sombra-card: 0 8px 32px rgba(74, 68, 63, 0.1);
         }
 
         body {
             background-color: #EAE6E1;
-            background-image: url('bg-textura.webp');
+            background-image: url('bg-textura.webp'); /* Anexo 2 */
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -51,7 +51,7 @@
             align-items: center;
         }
 
-        /* HEADER E ANIMAÇÃO DA LOGO */
+        /* HEADER E ANIMAÇÃO DA LOGO "INSTA-STYLE" */
         .profile-header {
             text-align: center;
             margin-bottom: 32px;
@@ -61,46 +61,49 @@
             align-items: center;
         }
 
-        /* Contêiner que segura a logo e a borda animada */
+        /* O wrapper que contém a logo e o anel animado */
         .logo-wrapper {
             position: relative;
-            width: 120px;
-            height: 120px;
-            margin-bottom: 16px;
+            width: 130px;
+            height: 130px;
+            margin-bottom: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        /* O anel tracejado que gira */
+        /* O Anel Giratório Multicolorido (Pseudo-elemento) */
         .logo-wrapper::before {
             content: '';
             position: absolute;
-            top: -6px;
-            left: -6px;
-            right: -6px;
-            bottom: -6px;
+            top: -5px; /* Espaço entre o anel e a logo */
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
             border-radius: 50%;
-            border: 2px dashed var(--cor-destaque);
-            animation: spin 10s linear infinite;
+            /* UI/UX: Gradiente multicolorido e contínuo para efeito premium */
+            background: conic-gradient(#A3968A, #FFFFFF, #E0DEDC, #A3968A);
+            animation: spinRing 12s linear infinite; /* Rotação lenta e elegante */
+            mask-image: radial-gradient(circle, transparent 67%, #000 68%); /* Poka o centro */
+            -webkit-mask-image: radial-gradient(circle, transparent 67%, #000 68%);
         }
 
-        /* Animação do giro */
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        /* Definição da animação da rotação */
+        @keyframes spinRing {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         .logo-img {
-            width: 100%;
-            height: 100%;
+            width: 115px;
+            height: 115px;
             border-radius: 50%;
             object-fit: cover;
             border: 3px solid var(--cor-texto-claro);
             position: relative;
             z-index: 2;
-            background-color: #FFF; /* Fundo branco caso a logo seja transparente */
             box-shadow: var(--sombra-card);
+            background-color: #FFF; /* Garante fundo branco se a logo tiver transparência */
         }
 
         .bio-title {
@@ -129,7 +132,7 @@
             border-radius: 20px;
         }
 
-        /* CARDS DE PROCEDIMENTO */
+        /* CARDS DE PROCEDIMENTO (UI/UX VERTICAL) */
         .services-list {
             width: 100%;
             display: flex;
@@ -140,19 +143,21 @@
 
         .service-card {
             background: var(--cor-fundo-card);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(12px); /* Efeito Vidro Fosco */
+            border: 1px solid rgba(255, 255, 255, 0.5);
             border-radius: 16px;
             padding: 24px;
             box-shadow: var(--sombra-card);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .service-card:hover {
+        /* Feedback visual ao toque */
+        .service-card:hover, .service-card:active {
             transform: translateY(-2px);
             box-shadow: 0 12px 32px rgba(74, 68, 63, 0.12);
         }
 
+        /* Destaque Exobrows */
         .card-destaque {
             border: 1px solid var(--cor-destaque);
             background: rgba(255, 255, 255, 0.95);
@@ -183,13 +188,13 @@
             margin-bottom: 20px;
         }
 
-        /* BOTÕES DE AÇÃO */
+        /* BOTÕES DE AÇÃO (CTA) */
         .btn-agendar {
             display: flex;
             align-items: center;
             justify-content: center;
             width: 100%;
-            height: 48px;
+            height: 48px; /* Touch target ideal (mínimo 44px) */
             background-color: transparent;
             color: var(--cor-destaque);
             text-decoration: none;
@@ -229,10 +234,10 @@
         
         <header class="profile-header">
             <div class="logo-wrapper">
-                <img src="logo-browlab.webp" alt="Logo da Clínica" class="logo-img">
+                <img src="logo-browlab.webp" alt="browLab Clinic" class="logo-img">
             </div>
             
-            <h1 class="bio-title">Império das Sobrancelhas</h1>
+            <h1 class="bio-title">browLab Clinic</h1>
             <p class="bio-description">Alta performance em estética facial. Realçamos sua beleza natural com sofisticação e técnicas exclusivas.</p>
             <div class="bio-location">São Bernardo do Campo</div>
         </header>
