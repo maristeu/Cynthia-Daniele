@@ -31,12 +31,11 @@
 
         body {
             background-color: #EAE6E1;
-            /* NOVA CONFIGURAÇÃO DE FUNDO: Otimizado para celular (Sem zoom/borrado) usando o novo arquivo[cite: 2] */
-            background-image: linear-gradient(rgba(163, 150, 138, 0.1), rgba(74, 68, 63, 0.3)), url('bg-textura_2.webp'); 
+            /* Imagem original respeitada 100%, sem filtros escurecendo */
+            background-image: url('bg-textura.webp'); 
             background-size: cover;
             background-position: top center;
             background-repeat: no-repeat;
-            /* Removido o 'background-attachment: fixed' que causava o blur no mobile */
             color: var(--cor-texto-escuro);
             min-height: 100vh;
             display: flex;
@@ -274,13 +273,14 @@
         }
 
         .btn-destaque {
-            background-color: var(--cor-destaque);
-            color: var(--cor-texto-claro);
+            background-color: transparent; /* Fundo transparente igual aos outros */
+            color: var(--cor-destaque); /* Letra colorida */
+            border: 2px solid var(--cor-destaque); /* Apenas o contorno */
         }
 
         .btn-destaque:hover, .btn-destaque:active {
-            background-color: var(--cor-destaque-hover);
-            border-color: var(--cor-destaque-hover);
+            background-color: var(--cor-destaque);
+            color: var(--cor-texto-claro);
         }
         
         /* SEPARADOR PARA CURSOS */
