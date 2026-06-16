@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         /* RESET BÁSICO */
@@ -25,14 +25,14 @@
             --cor-texto-claro: #FFFFFF;
             --cor-destaque: #A3968A; 
             --cor-destaque-hover: #8C7F73;
-            --cor-fundo-card: rgba(255, 255, 255, 0.9); /* Cartões bem brancos e translúcidos */
-            --sombra-card: 0 8px 32px rgba(74, 68, 63, 0.15); /* Sombra um pouco mais marcada para dar 3D */
+            --cor-fundo-card: rgba(255, 255, 255, 0.9);
+            --sombra-card: 0 8px 32px rgba(74, 68, 63, 0.15); 
         }
 
         body {
             background-color: #EAE6E1;
-            /* O SEGREDO DO CONTRASTE: Um degradê suave em tons de greige por cima da textura */
-            background-image: linear-gradient(rgba(163, 150, 138, 0.25), rgba(74, 68, 63, 0.5)), url('bg-textura.webp'); 
+            /* Filtro bem suave apenas para dar profundidade, mantendo o fundo claro */
+            background-image: linear-gradient(rgba(163, 150, 138, 0.1), rgba(74, 68, 63, 0.3)), url('bg-textura.webp'); 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -104,37 +104,36 @@
             background-color: #FFF; 
         }
 
+        /* AJUSTE DE CONTRASTE: Textos do topo agora são escuros para dar leitura no fundo claro */
         .bio-title {
             font-size: 1.4rem;
-            font-weight: 600;
+            font-weight: 700;
             letter-spacing: -0.5px;
             margin-bottom: 8px;
-            color: #FFFFFF; /* Título em branco para contrastar com o fundo */
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            color: var(--cor-texto-escuro); 
         }
 
         .bio-description {
             font-size: 0.95rem;
             font-weight: 500;
-            color: #F5F5F5; /* Descrição clarinha */
+            color: var(--cor-texto-medio);
             margin-bottom: 12px;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
 
         .bio-location {
             display: inline-block;
             font-size: 0.75rem;
             font-weight: 600;
-            color: #FFFFFF;
+            color: var(--cor-destaque);
             text-transform: uppercase;
             letter-spacing: 1px;
             padding: 4px 12px;
-            border: 1px solid #FFFFFF;
+            border: 1px solid var(--cor-destaque);
             border-radius: 20px;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.4); /* Fundo sutil para destacar a borda */
         }
 
-        /* BOTÕES DE CONTATO (PÍLULA) */
+        /* BOTÃO DE CONTATO PRINCIPAL (PÍLULA) */
         .contact-section {
             width: 100%;
             display: flex;
@@ -145,11 +144,10 @@
 
         .contact-title {
             font-size: 1.1rem;
-            font-weight: 600;
-            color: #FFFFFF;
+            font-weight: 700;
+            color: var(--cor-texto-escuro);
             text-align: center;
             margin-bottom: 8px;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
         }
 
         .pill-btn {
@@ -283,6 +281,38 @@
             background-color: var(--cor-destaque-hover);
             border-color: var(--cor-destaque-hover);
         }
+        
+        /* SEPARADOR PARA CURSOS */
+        .section-divider {
+            width: 100%;
+            text-align: center;
+            margin: 10px 0 20px 0;
+            position: relative;
+        }
+        
+        .section-divider::before {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 1px;
+            background: rgba(74, 68, 63, 0.15);
+            position: absolute;
+            top: 50%;
+            left: 0;
+            z-index: 1;
+        }
+        
+        .section-divider span {
+            background-color: #EAE6E1;
+            padding: 0 16px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--cor-destaque);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 2;
+        }
 
         /* BOTÃO FLUTUANTE WHATSAPP */
         .whatsapp-float {
@@ -323,10 +353,9 @@
 
         footer {
             font-size: 0.75rem;
-            color: #EAE6E1;
+            color: var(--cor-texto-medio);
             text-align: center;
             padding-bottom: 20px;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
         }
     </style>
 </head>
@@ -352,13 +381,6 @@
                     <img src="icon-whatsapp.png" alt="WhatsApp">
                 </div>
                 <span class="pill-text">WhatsApp</span>
-            </a>
-
-            <a href="https://instagram.com/browlab.clinic" class="pill-btn" target="_blank" rel="noopener noreferrer">
-                <div class="pill-icon-wrapper">
-                    <img src="icon-instagram.png" alt="Instagram">
-                </div>
-                <span class="pill-text">@browlab.clinic</span>
             </a>
         </section>
 
@@ -485,10 +507,26 @@
                 </a>
             </article>
 
+            <!-- NOVO BLOCO: FORMAÇÕES PRESENCIAIS -->
+            <div class="section-divider">
+                <span>Cursos & Mentorias</span>
+            </div>
+
+            <article class="service-card card-destaque">
+                <div class="card-header">
+                    <img src="icone-formacao.png" alt="Formações Presenciais" class="service-icon">
+                    <h2 class="service-title">Formações Presenciais</h2>
+                </div>
+                <p class="service-desc">Capacitação avançada para profissionais. Eleve o padrão dos seus atendimentos com protocolos e técnicas exclusivas.</p>
+                <a href="https://wa.me/5511939460340?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20informa%C3%A7%C3%B5es%20sobre%20as%20Forma%C3%A7%C3%B5es%20Presenciais%20e%20Mentorias." class="btn-agendar btn-destaque" target="_blank" rel="noopener noreferrer">
+                    Informações sobre Cursos
+                </a>
+            </article>
+
         </main>
 
         <footer>
-            <p>&copy; 2026 Cynthia Daniele. Todos os direitos reservados.</p>
+            <p>&copy; 2026 Clínica de Estética. Todos os direitos reservados.</p>
         </footer>
 
     </div>
